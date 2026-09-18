@@ -1,0 +1,124 @@
+{
+ "label": "kvbm-hostonly-8b-e1",
+ "model": "qwen3-8b",
+ "tokens": 30000,
+ "evict": 1,
+ "steps": [
+  {
+   "ttft": 9.029,
+   "wall": 9.209,
+   "text": "yankee",
+   "usage": {
+    "prompt_tokens": 30156,
+    "total_tokens": 30159,
+    "completion_tokens": 3
+   },
+   "step": "A1",
+   "seed": 1000,
+   "metrics_after": {
+    "kvbm_disk_cache_hit_rate": 0.0,
+    "kvbm_host_cache_hit_rate": 0.0,
+    "kvbm_matched_tokens": 0.0,
+    "kvbm_object_cache_hit_rate": 0.0,
+    "kvbm_object_read_failures": 0.0,
+    "kvbm_object_write_failures": 0.0,
+    "kvbm_offload_blocks_d2d": 0.0,
+    "kvbm_offload_blocks_d2h": 2578.0,
+    "kvbm_offload_blocks_d2o": 0.0,
+    "kvbm_offload_blocks_h2d": 0.0,
+    "kvbm_onboard_blocks_d2d": 0.0,
+    "kvbm_onboard_blocks_h2d": 0.0,
+    "kvbm_onboard_blocks_o2d": 0.0
+   },
+   "expected": "yankee",
+   "correct": true
+  },
+  {
+   "ttft": 9.082,
+   "wall": 9.261,
+   "text": "oscar",
+   "usage": {
+    "prompt_tokens": 30146,
+    "total_tokens": 30149,
+    "completion_tokens": 3
+   },
+   "step": "E1",
+   "seed": 2000,
+   "metrics_after": {
+    "kvbm_disk_cache_hit_rate": 0.0,
+    "kvbm_host_cache_hit_rate": 0.0,
+    "kvbm_matched_tokens": 0.0,
+    "kvbm_object_cache_hit_rate": 0.0,
+    "kvbm_object_read_failures": 0.0,
+    "kvbm_object_write_failures": 0.0,
+    "kvbm_offload_blocks_d2d": 0.0,
+    "kvbm_offload_blocks_d2h": 4462.0,
+    "kvbm_offload_blocks_d2o": 0.0,
+    "kvbm_offload_blocks_h2d": 0.0,
+    "kvbm_onboard_blocks_d2d": 0.0,
+    "kvbm_onboard_blocks_h2d": 0.0,
+    "kvbm_onboard_blocks_o2d": 0.0
+   },
+   "expected": "oscar",
+   "correct": true
+  },
+  {
+   "ttft": 0.246,
+   "wall": 0.419,
+   "text": "yankee",
+   "usage": {
+    "prompt_tokens": 30156,
+    "total_tokens": 30159,
+    "completion_tokens": 3
+   },
+   "step": "A2",
+   "seed": 1000,
+   "metrics_after": {
+    "kvbm_disk_cache_hit_rate": 0.0,
+    "kvbm_host_cache_hit_rate": 0.0,
+    "kvbm_matched_tokens": 31072.0,
+    "kvbm_object_cache_hit_rate": 0.0,
+    "kvbm_object_read_failures": 0.0,
+    "kvbm_object_write_failures": 0.0,
+    "kvbm_offload_blocks_d2d": 0.0,
+    "kvbm_offload_blocks_d2h": 4462.0,
+    "kvbm_offload_blocks_d2o": 0.0,
+    "kvbm_offload_blocks_h2d": 0.0,
+    "kvbm_onboard_blocks_d2d": 0.0,
+    "kvbm_onboard_blocks_h2d": 971.0,
+    "kvbm_onboard_blocks_o2d": 0.0
+   },
+   "expected": "yankee",
+   "correct": true
+  }
+ ],
+ "summary": {
+  "ttft_A1": 9.029,
+  "ttft_A2": 0.246,
+  "ratio": 0.027,
+  "identical": true,
+  "correct_A1": true,
+  "correct_A2": true,
+  "expected": "yankee",
+  "text_A1": "yankee",
+  "text_A2": "yankee",
+  "onboard_d2d_delta": 0,
+  "onboard_h2d_delta": 971.0,
+  "offload_d2h_delta": 1884.0,
+  "offload_h2d_delta": 0,
+  "metrics_seen": [
+   "kvbm_disk_cache_hit_rate",
+   "kvbm_host_cache_hit_rate",
+   "kvbm_matched_tokens",
+   "kvbm_object_cache_hit_rate",
+   "kvbm_object_read_failures",
+   "kvbm_object_write_failures",
+   "kvbm_offload_blocks_d2d",
+   "kvbm_offload_blocks_d2h",
+   "kvbm_offload_blocks_d2o",
+   "kvbm_offload_blocks_h2d",
+   "kvbm_onboard_blocks_d2d",
+   "kvbm_onboard_blocks_h2d"
+  ]
+ }
+}

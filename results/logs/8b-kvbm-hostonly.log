@@ -1,0 +1,187 @@
+(APIServer pid=1) INFO 09-18 22:38:27 [api_utils.py:345] 
+(APIServer pid=1) INFO 09-18 22:38:27 [api_utils.py:345]        █     █     █▄   ▄█
+(APIServer pid=1) INFO 09-18 22:38:27 [api_utils.py:345]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.27.1
+(APIServer pid=1) INFO 09-18 22:38:27 [api_utils.py:345]   █▄█▀ █     █     █     █  model   /models/Qwen3-8B
+(APIServer pid=1) INFO 09-18 22:38:27 [api_utils.py:345]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=1) INFO 09-18 22:38:27 [api_utils.py:345] 
+(APIServer pid=1) INFO 09-18 22:38:27 [api_utils.py:273] non-default args: {'model_tag': '/models/Qwen3-8B', 'model': '/models/Qwen3-8B', 'max_model_len': 40960, 'served_model_name': ['qwen3-8b'], 'gpu_memory_utilization': 0.2, 'enable_prefix_caching': True, 'max_num_batched_tokens': 8192, 'max_num_seqs': 4, 'kv_transfer_config': KVTransferConfig(kv_connector='DynamoConnector', engine_id='b7ffa7e3-4373-4982-9e14-b96ec18eebd4', kv_buffer_device='cuda', kv_buffer_size=1000000000.0, kv_role='kv_both', kv_rank=None, kv_parallel_size=1, kv_ip='127.0.0.1', kv_port=14579, kv_connector_extra_config={}, kv_connector_module_path='kvbm.vllm_integration.connector', enable_permute_local_kv=False, kv_load_failure_policy='fail')}
+(APIServer pid=1) INFO 09-18 22:38:36 [model.py:645] Resolved architecture: Qwen3ForCausalLM
+(APIServer pid=1) INFO 09-18 22:38:36 [model.py:1883] Using max model len 40960
+(APIServer pid=1) INFO 09-18 22:38:36 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(APIServer pid=1) INFO 09-18 22:38:36 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(APIServer pid=1) WARNING 09-18 22:38:36 [nixl_utils.py:25] NIXL was already imported, we can't reset UCX_RCACHE_MAX_UNRELEASED. Please set it to '1024' manually.
+(APIServer pid=1) INFO 09-18 22:38:36 [nixl_utils.py:72] NIXL is available
+(APIServer pid=1) WARNING 09-18 22:38:36 [vllm.py:1648] Turning off hybrid kv cache manager because `--kv-transfer-config` selects a KV connector that does not support it. Impact: hybrid SSM models (e.g. Jamba, Bamba) require HMA and will fail at startup without it; models with sliding window attention will run with reduced performance. To add HMA support to a KV connector, subclass `SupportsHMA` defined in kv_connector/v1/base.py (for MultiConnector, all child connectors must support HMA).
+(EngineCore pid=190) INFO 09-18 22:38:42 [parallel_state.py:1640] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://<LAN-IP>:34311 backend=nccl
+(EngineCore pid=190) INFO 09-18 22:38:42 [parallel_state.py:1977] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=190) INFO 09-18 22:38:42 [gpu_worker.py:385] Using V2 Model Runner
+(EngineCore pid=190) INFO 09-18 22:38:43 [model_runner.py:308] Loading model from scratch...
+(EngineCore pid=190) INFO 09-18 22:38:43 [cuda.py:482] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=190) INFO 09-18 22:38:43 [flash_attn.py:789] Using FlashAttention version 2
+(EngineCore pid=190) INFO 09-18 22:38:44 [weight_utils.py:867] Filesystem type for checkpoints: EXT4. Checkpoint size: 15.26 GiB. Available RAM: 97.14 GiB.
+(EngineCore pid=190) INFO 09-18 22:38:44 [weight_utils.py:890] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=190) Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore pid=190) Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:28<01:53, 28.39s/it]
+(EngineCore pid=190) Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:51<01:16, 25.47s/it]
+(EngineCore pid=190) Loading safetensors checkpoint shards:  60% Completed | 3/5 [01:15<00:49, 24.63s/it]
+(EngineCore pid=190) Loading safetensors checkpoint shards:  80% Completed | 4/5 [01:35<00:22, 22.89s/it]
+(EngineCore pid=190) Loading safetensors checkpoint shards: 100% Completed | 5/5 [01:45<00:00, 18.08s/it]
+(EngineCore pid=190) Loading safetensors checkpoint shards: 100% Completed | 5/5 [01:45<00:00, 21.05s/it]
+(EngineCore pid=190) 
+(EngineCore pid=190) INFO 09-18 22:40:29 [default_loader.py:430] Loading weights took 105.39 seconds
+(EngineCore pid=190) INFO 09-18 22:40:30 [model_runner.py:329] Model loading took 15.27 GiB and 106.830910 seconds
+(EngineCore pid=190) INFO 09-18 22:40:30 [topk_topp_sampler.py:62] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=190) WARNING 09-18 22:40:30 [nixl_utils.py:25] NIXL was already imported, we can't reset UCX_RCACHE_MAX_UNRELEASED. Please set it to '1024' manually.
+(EngineCore pid=190) INFO 09-18 22:40:30 [nixl_utils.py:72] NIXL is available
+(EngineCore pid=190) INFO 09-18 22:40:30 [utils.py:47] Connectors do not specify a kv cache layout, defaulting to NHD.
+(EngineCore pid=190) INFO 09-18 22:40:34 [backends.py:1094] Using cache directory: /root/.cache/vllm/torch_compile_cache/5323ecd990/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=190) INFO 09-18 22:40:34 [backends.py:1155] Dynamo bytecode transform time: 3.25 s
+(EngineCore pid=190) [rank0]:W0918 22:40:34.705000 190 torch/_inductor/utils.py:1953] Not enough SMs to use max_autotune_gemm mode
+(EngineCore pid=190) INFO 09-18 22:40:45 [backends.py:393] Compiling a graph for compile range (1, 8192) takes 11.13 s
+(EngineCore pid=190) INFO 09-18 22:40:47 [backends.py:920] collected artifacts: 37 entries, 3 artifacts, 6003410 bytes total
+(EngineCore pid=190) INFO 09-18 22:40:47 [decorators.py:708] saved AOT compiled function to /root/.cache/vllm/torch_compile_cache/torch_aot_compile/64743138893ca0609161611ca67c5e78594f657bc9464f659ae244c374fda112/rank_0_0/model
+(EngineCore pid=190) INFO 09-18 22:40:47 [monitor.py:53] torch.compile took 16.54 s in total
+(EngineCore pid=190) INFO 09-18 22:40:47 [monitor.py:81] Initial profiling/warmup run took 0.26 s
+(EngineCore pid=190) INFO 09-18 22:40:49 [gpu_worker.py:563] Available KV cache memory: 6.15 GiB
+(EngineCore pid=190) INFO 09-18 22:40:49 [kv_cache_utils.py:2235] GPU KV cache size: 44,784 tokens
+(EngineCore pid=190) INFO 09-18 22:40:49 [kv_cache_utils.py:2236] Maximum concurrency for 40,960 tokens per request: 1.09x
+(EngineCore pid=190) INFO 09-18 22:40:49 [factory.py:62] Creating v1 connector with name: DynamoConnector and engine_id: b7ffa7e3-4373-4982-9e14-b96ec18eebd4
+(EngineCore pid=190) WARNING 09-18 22:40:49 [base.py:202] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+[2m2026-09-18T22:40:49.679060Z[0m [32m INFO[0m [2m_core::block_manager::vllm::connector::worker[0m[2m:[0m KvConnectorWorker initialized with worker_id: b7ffa7e3-4373-4982-9e14-b96ec18eebd4
+[2m2026-09-18T22:40:49.879415Z[0m [32m INFO[0m [2m_core::block_manager::vllm::connector::worker[0m[2m:[0m Auto-detected device layout from tensor shape: LayerSeparate { outer_contiguous: false }
+[2m2026-09-18T22:40:49.879521Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::worker[0m[2m:[0m Initializing KvbmWorker with params: num_device_blocks=2799, page_size=16, dtype_width_bytes=2
+[2m2026-09-18T22:40:49.879574Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::worker[0m[2m:[0m Layout: num_layers=36, outer_dim=1, outer_contiguous=false, page_size=16, inner_dim=2048
+[2m2026-09-18T22:40:49.880348Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::zmq[0m[2m:[0m ZmqActiveMessageWorker: Bound to sub: tcp://127.0.0.1:56001 and push: tcp://127.0.0.1:56002
+(EngineCore pid=190) INFO 09-18 22:40:50 [kernel_warmup.py:256] Using FlashInfer autotune cache file: /root/.cache/vllm/flashinfer_autotune_cache/0.6.16.post3/121a/ee10ad0271ee04df81d10c32e6b2c61f73c4c03f08391feab3a8e70f6a9470d9/autotune_configs.json
+(EngineCore pid=190) 2026-09-18 22:40:50,266 - INFO - autotuner.py:829 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=190) 2026-09-18 22:41:08,897 - INFO - autotuner.py:852 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=190) 2026-09-18 22:41:08,904 - INFO - autotuner.py:2269 - flashinfer.jit: [Autotuner]: Saved 0 configs to /root/.cache/vllm/flashinfer_autotune_cache/0.6.16.post3/121a/ee10ad0271ee04df81d10c32e6b2c61f73c4c03f08391feab3a8e70f6a9470d9/autotune_configs.json (0 new, 0 from previous config)
+(EngineCore pid=190) Capturing CUDA graphs (PIECEWISE):   0%|          | 0/4 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):  50%|█████     | 2/4 [00:16<00:16,  8.01s/it]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 4/4 [00:16<00:00,  3.35s/it]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 4/4 [00:16<00:00,  4.05s/it]
+(EngineCore pid=190) Capturing CUDA graphs (FULL):   0%|          | 0/3 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):  33%|███▎      | 1/3 [00:31<01:02, 31.27s/it]Capturing CUDA graphs (FULL): 100%|██████████| 3/3 [00:31<00:00,  8.16s/it]Capturing CUDA graphs (FULL): 100%|██████████| 3/3 [00:31<00:00, 10.47s/it]
+(EngineCore pid=190) INFO 09-18 22:41:57 [model_runner.py:791] Graph capturing finished in 49 secs, took 0.48 GiB
+(EngineCore pid=190) INFO 09-18 22:41:57 [gpu_worker.py:789] Free memory on device (114.04/121.63 GiB) on startup. Desired GPU memory utilization is (0.2, 24.33 GiB). Actual usage is 16.92 GiB for consumed memory (weights + non-torch), 1.25 GiB for peak activation, and 0.48 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=5935677850` (5.53 GiB) to fit into requested memory, or `--kv-cache-memory=102270855168` (95.25 GiB) to fully utilize gpu memory. Current kv cache memory in use is 6.15 GiB.
+(EngineCore pid=190) INFO 09-18 22:42:00 [jit_monitor.py:79] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=190) INFO 09-18 22:42:00 [core.py:348] init engine (profile, create kv cache, warmup model) took 90.44 s (compilation: 16.54 s)
+(EngineCore pid=190) INFO 09-18 22:42:01 [factory.py:62] Creating v1 connector with name: DynamoConnector and engine_id: b7ffa7e3-4373-4982-9e14-b96ec18eebd4
+(EngineCore pid=190) WARNING 09-18 22:42:01 [base.py:202] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+[2m2026-09-18T22:42:01.061392Z[0m [32m INFO[0m [2m_core::block_manager::vllm::connector::leader[0m[2m:[0m KvConnectorLeader initialized with worker_id: b7ffa7e3-4373-4982-9e14-b96ec18eebd4
+[2m2026-09-18T22:42:01.061978Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::zmq[0m[2m:[0m ZmqActiveMessageLeader: Bound to pub: tcp://127.0.0.1:56001 and pull: tcp://127.0.0.1:56002
+[2m2026-09-18T22:42:01.062004Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::zmq[0m[2m:[0m Handshake: requesting worker device configs...
+[2m2026-09-18T22:42:03.063626Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::zmq[0m[2m:[0m Handshake: requesting worker device configs...
+[2m2026-09-18T22:42:03.065083Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::zmq[0m[2m:[0m Handshake: received 1 worker metadata replies in this round.
+[2m2026-09-18T22:42:03.065106Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::zmq[0m[2m:[0m Handshake: broadcasting allocation config to workers...
+[2m2026-09-18T22:42:03.066298Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::zmq[0m[2m:[0m Handshake: all workers acked allocation config.
+[2m2026-09-18T22:42:03.071232Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::block::transfer::context[0m[2m:[0m Creating CUDA memory pool: 10 buffers × 4KB = 0MB total
+[2m2026-09-18T22:42:03.078677Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::block::transfer::context[0m[2m:[0m CUDA memory pool created successfully (DEVICE memory, stream-ordered allocation, pre-warmed with 0MB)
+E0918 22:42:03.078720     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078742     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078744     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078748     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078750     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078752     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078753     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078755     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078756     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078761     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078762     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078764     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078765     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078768     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078769     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078771     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078772     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078774     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078776     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078778     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078779     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078781     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078782     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078785     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078789     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078791     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078792     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078793     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078796     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078798     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078799     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078800     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078802     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078804     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078806     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+E0918 22:42:03.078808     381 nixl_agent.cpp:420] registerMem: no available backends for mem type 'VRAM_SEG'
+[2m2026-09-18T22:42:05.033479Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::worker[0m[2m:[0m allocation finished; worker is ping-ACK-able
+[2m2026-09-18T22:42:05.071210Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::worker[0m[2m:[0m Reported ping-ready after first ACK
+[2m2026-09-18T22:42:05.071239Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::worker[0m[2m:[0m worker layout allocation finished.
+[2m2026-09-18T22:42:05.071828Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::distributed::leader[0m[2m:[0m ZMQ handshake complete; workers allocation ready
+[2m2026-09-18T22:42:05.072016Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::state::resources[0m[2m:[0m Using NullEventManager
+[2m2026-09-18T22:42:05.072041Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::pool::managed[0m[2m:[0m building block pool
+[2m2026-09-18T22:42:05.072361Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::pool::managed[0m[2m:[0m building block pool
+[2m2026-09-18T22:42:05.072565Z[0m [33m WARN[0m [2mdynamo_llm::block_manager::offload[0m[2m:[0m Host to Disk offload filter is not provided. All blocks in host will be offloaded to disk. This may result in excessive disk offloading and accelerated SSD degradation.
+[2m2026-09-18T22:42:05.072585Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::offload[0m[2m:[0m Configured offload transfer settings [3mmax_concurrent_transfers[0m[2m=[0m4 [3mmax_transfer_batch_size[0m[2m=[0m16
+[2m2026-09-18T22:42:05.072680Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::block::transfer::context[0m[2m:[0m Creating CUDA memory pool: 10 buffers × 0KB = 0MB total
+[2m2026-09-18T22:42:05.074479Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::block::transfer::context[0m[2m:[0m CUDA memory pool created successfully (DEVICE memory, stream-ordered allocation, pre-warmed with 0MB)
+[2m2026-09-18T22:42:05.074600Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::block::transfer::context[0m[2m:[0m Creating CUDA memory pool: 10 buffers × 0KB = 0MB total
+[2m2026-09-18T22:42:05.076040Z[0m [32m INFO[0m [2mdynamo_llm::block_manager::block::transfer::context[0m[2m:[0m CUDA memory pool created successfully (DEVICE memory, stream-ordered allocation, pre-warmed with 0MB)
+[2m2026-09-18T22:42:05.077115Z[0m [32m INFO[0m [2m_core::block_manager::vllm::connector::leader[0m[2m:[0m KvConnectorLeader init complete.
+(EngineCore pid=190) KvConnectorLeader initialized with engine_id: b7ffa7e3-4373-4982-9e14-b96ec18eebd4
+(EngineCore pid=190) INFO 09-18 22:42:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(APIServer pid=1) INFO 09-18 22:42:05 [api_server.py:678] Supported tasks: ['generate']
+(APIServer pid=1) INFO 09-18 22:42:05 [hf.py:540] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(APIServer pid=1) WARNING 09-18 22:42:05 [model.py:1637] Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(APIServer pid=1) INFO 09-18 22:42:05 [api_server.py:682] Starting vLLM server on http://0.0.0.0:8000
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:37] Available routes are:
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /openapi.json, Methods: HEAD, GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /docs, Methods: HEAD, GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /redoc, Methods: HEAD, GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /load, Methods: GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /version, Methods: GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /health, Methods: GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /metrics, Methods: GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /tokenize, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /detokenize, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/models, Methods: GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /ping, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /invocations, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/chat/completions, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/chat/completions/batch, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/responses, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/responses/{response_id}, Methods: GET
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/responses/{response_id}/cancel, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/completions, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/messages, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/messages/count_tokens, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /generative_scoring, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /scale_elastic_ep, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /is_scaling_elastic_ep, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/chat/completions/render, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/completions/render, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/chat/completions/derender, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /v1/completions/derender, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:46] Route: /inference/v1/generate, Methods: POST
+(APIServer pid=1) INFO 09-18 22:42:05 [launcher.py:99] API server: waiting for HTTP server to start
+(APIServer pid=1) INFO:     Started server process [1]
+(APIServer pid=1) INFO:     Waiting for application startup.
+(APIServer pid=1) INFO:     Application startup complete.
+(APIServer pid=1) INFO 09-18 22:42:06 [launcher.py:105] API server: HTTP server started
+(APIServer pid=1) INFO:     127.0.0.1:40442 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO:     127.0.0.1:40456 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 09-18 22:42:26 [loggers.py:310] Engine 000: Avg prompt throughput: 1111.5 tokens/s, Avg generation throughput: 0.1 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 54.9%, Prefix cache hit rate: 0.0%, External prefix cache hit rate: 0.0%
+(APIServer pid=1) INFO:     127.0.0.1:45118 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 09-18 22:42:36 [loggers.py:310] Engine 000: Avg prompt throughput: 3015.2 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 54.9%, Prefix cache hit rate: 0.0%, External prefix cache hit rate: 0.0%
+(APIServer pid=1) INFO:     127.0.0.1:58782 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO:     127.0.0.1:58786 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO:     127.0.0.1:58794 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO:     127.0.0.1:58802 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 09-18 22:42:46 [loggers.py:310] Engine 000: Avg prompt throughput: 4128.5 tokens/s, Avg generation throughput: 1.0 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 49.2%, Prefix cache hit rate: 27.9%, External prefix cache hit rate: 14.2%
+(APIServer pid=1) INFO:     127.0.0.1:40960 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 09-18 22:42:56 [loggers.py:310] Engine 000: Avg prompt throughput: 2449.6 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 54.9%, Prefix cache hit rate: 23.8%, External prefix cache hit rate: 11.4%
+(APIServer pid=1) INFO:     127.0.0.1:58152 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2m2026-09-18T22:43:05.078625Z[0m [32m INFO[0m [2m_core::block_manager::cache_stats[0m[2m:[0m KVBM [worker-b7ffa7e3-4373-4982-9e14-b96ec18eebd4] Cache Hit Rates - Host: 11.4% (1105/9676), Disk: 0.0% (0/9676)
+(APIServer pid=1) INFO 09-18 22:43:06 [loggers.py:310] Engine 000: Avg prompt throughput: 3015.1 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 54.9%, Prefix cache hit rate: 20.7%, External prefix cache hit rate: 9.6%
+(APIServer pid=1) INFO:     127.0.0.1:45834 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 09-18 22:43:16 [loggers.py:310] Engine 000: Avg prompt throughput: 3016.0 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 54.9%, Prefix cache hit rate: 18.3%, External prefix cache hit rate: 8.2%
+(APIServer pid=1) INFO:     127.0.0.1:57182 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 09-18 22:43:26 [loggers.py:310] Engine 000: Avg prompt throughput: 6029.3 tokens/s, Avg generation throughput: 0.5 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 67.4%, Prefix cache hit rate: 16.4%, External prefix cache hit rate: 7.2%
+(APIServer pid=1) INFO 09-18 22:43:36 [loggers.py:310] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 16.4%, External prefix cache hit rate: 7.2%

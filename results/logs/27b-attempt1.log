@@ -1,0 +1,98 @@
+(APIServer pid=1) INFO 09-18 21:53:33 [api_utils.py:345] 
+(APIServer pid=1) INFO 09-18 21:53:33 [api_utils.py:345]        █     █     █▄   ▄█
+(APIServer pid=1) INFO 09-18 21:53:33 [api_utils.py:345]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.27.1
+(APIServer pid=1) INFO 09-18 21:53:33 [api_utils.py:345]   █▄█▀ █     █     █     █  model   /models/Qwen3.8-27B-NVFP4
+(APIServer pid=1) INFO 09-18 21:53:33 [api_utils.py:345]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=1) INFO 09-18 21:53:33 [api_utils.py:345] 
+(APIServer pid=1) INFO 09-18 21:53:33 [api_utils.py:273] non-default args: {'model_tag': '/models/Qwen3.8-27B-NVFP4', 'model': '/models/Qwen3.8-27B-NVFP4', 'max_model_len': 40960, 'served_model_name': ['qwen38-27b'], 'reasoning_parser': 'qwen3', 'gpu_memory_utilization': 0.3, 'enable_prefix_caching': True, 'max_num_batched_tokens': 8192, 'max_num_seqs': 4, 'kv_transfer_config': KVTransferConfig(kv_connector='DynamoConnector', engine_id='323714a4-7410-4a9c-940f-5fa822a47ff1', kv_buffer_device='cuda', kv_buffer_size=1000000000.0, kv_role='kv_both', kv_rank=None, kv_parallel_size=1, kv_ip='127.0.0.1', kv_port=14579, kv_connector_extra_config={}, kv_connector_module_path='kvbm.vllm_integration.connector', enable_permute_local_kv=False, kv_load_failure_policy='fail')}
+(APIServer pid=1) INFO 09-18 21:53:43 [model.py:645] Resolved architecture: Qwen3_5ForConditionalGeneration
+(APIServer pid=1) INFO 09-18 21:53:43 [model.py:1883] Using max model len 40960
+(APIServer pid=1) INFO 09-18 21:53:44 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(APIServer pid=1) WARNING 09-18 21:53:44 [config.py:618] Mamba cache mode is set to 'align' for Qwen3_5ForConditionalGeneration by default when prefix caching is enabled
+(APIServer pid=1) INFO 09-18 21:53:44 [config.py:638] Warning: Prefix caching in Mamba cache 'align' mode is currently enabled. Its support for Mamba layers is experimental. Please report any issues you may observe.
+(APIServer pid=1) INFO 09-18 21:53:44 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(APIServer pid=1) WARNING 09-18 21:53:44 [nixl_utils.py:25] NIXL was already imported, we can't reset UCX_RCACHE_MAX_UNRELEASED. Please set it to '1024' manually.
+(APIServer pid=1) INFO 09-18 21:53:44 [nixl_utils.py:72] NIXL is available
+(APIServer pid=1) WARNING 09-18 21:53:44 [vllm.py:1648] Turning off hybrid kv cache manager because `--kv-transfer-config` selects a KV connector that does not support it. Impact: hybrid SSM models (e.g. Jamba, Bamba) require HMA and will fail at startup without it; models with sliding window attention will run with reduced performance. To add HMA support to a KV connector, subclass `SupportsHMA` defined in kv_connector/v1/base.py (for MultiConnector, all child connectors must support HMA).
+(EngineCore pid=333) INFO 09-18 21:53:58 [parallel_state.py:1640] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://<LAN-IP>:45903 backend=nccl
+(EngineCore pid=333) INFO 09-18 21:53:58 [parallel_state.py:1977] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=333) INFO 09-18 21:53:58 [topk_topp_sampler.py:62] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=333) INFO 09-18 21:54:03 [gpu_model_runner.py:5308] Starting to load model /models/Qwen3.8-27B-NVFP4...
+(EngineCore pid=333) INFO 09-18 21:54:04 [cuda.py:541] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+(EngineCore pid=333) INFO 09-18 21:54:04 [mm_encoder_attention.py:375] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+(EngineCore pid=333) INFO 09-18 21:54:04 [__init__.py:665] Selected CutlassFP8ScaledMMLinearKernel for CompressedTensorsW8A8Fp8
+(EngineCore pid=333) INFO 09-18 21:54:04 [deep_gemm.py:175] deep_gemm not found in site-packages, trying vendored vllm.third_party.deep_gemm
+(EngineCore pid=333) INFO 09-18 21:54:04 [deep_gemm.py:202] DeepGEMM PDL enabled on vllm.third_party.deep_gemm.
+(EngineCore pid=333) INFO 09-18 21:54:04 [deep_gemm.py:120] DeepGEMM E8M0 enabled on current platform.
+(EngineCore pid=333) INFO 09-18 21:54:04 [qwen_gdn_linear_attn.py:150] Using Triton/FLA GDN prefill kernel (requested=auto, head_k_dim=128).
+(EngineCore pid=333) INFO 09-18 21:54:04 [__init__.py:1077] Using FlashInferCutlassNvFp4LinearKernel for NVFP4 GEMM
+(EngineCore pid=333) INFO 09-18 21:54:04 [cuda.py:482] Using FLASHINFER attention backend out of potential backends: ['FLASHINFER', 'TRITON_ATTN'].
+(EngineCore pid=333) INFO 09-18 21:54:05 [weight_utils.py:867] Filesystem type for checkpoints: EXT4. Checkpoint size: 21.81 GiB. Available RAM: 89.79 GiB.
+(EngineCore pid=333) INFO 09-18 21:54:05 [weight_utils.py:890] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=333) INFO 09-18 21:56:01 [default_loader.py:430] Loading weights took 115.98 seconds
+(EngineCore pid=333) INFO 09-18 21:56:02 [gpu_model_runner.py:5405] Model loading took 21.34 GiB memory and 117.704834 seconds
+(EngineCore pid=333) INFO 09-18 21:56:02 [interface.py:911] Setting attention block size to 1568 tokens to ensure that attention page size is >= mamba page size.
+(EngineCore pid=333) INFO 09-18 21:56:02 [interface.py:935] Padding mamba page size by 0.13% to ensure that mamba page size and attention page size are exactly equal.
+(EngineCore pid=333) WARNING 09-18 21:56:02 [nixl_utils.py:25] NIXL was already imported, we can't reset UCX_RCACHE_MAX_UNRELEASED. Please set it to '1024' manually.
+(EngineCore pid=333) INFO 09-18 21:56:02 [nixl_utils.py:72] NIXL is available
+(EngineCore pid=333) INFO 09-18 21:56:02 [utils.py:47] Connectors do not specify a kv cache layout, defaulting to NHD.
+(EngineCore pid=333) INFO 09-18 21:56:02 [gpu_model_runner.py:6465] Encoder cache will be initialized with a budget of 16384 tokens, and profiled with 1 image items of the maximum feature size.
+(EngineCore pid=333) INFO 09-18 21:56:21 [backends.py:1094] Using cache directory: /root/.cache/vllm/torch_compile_cache/c0338b3be2/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=333) INFO 09-18 21:56:21 [backends.py:1155] Dynamo bytecode transform time: 12.13 s
+(EngineCore pid=333) INFO 09-18 21:57:13 [backends.py:393] Compiling a graph for compile range (1, 8192) takes 51.48 s
+(EngineCore pid=333) INFO 09-18 21:57:19 [backends.py:920] collected artifacts: 65 entries, 23 artifacts, 106185391 bytes total
+(EngineCore pid=333) INFO 09-18 21:57:19 [decorators.py:708] saved AOT compiled function to /root/.cache/vllm/torch_compile_cache/torch_aot_compile/2f5d25026dfd3e9326541eef4b647e6f1c9192d0fedb361ebb59ba24d7dae072/rank_0_0/model
+(EngineCore pid=333) INFO 09-18 21:57:19 [monitor.py:53] torch.compile took 69.97 s in total
+(EngineCore pid=333) INFO 09-18 21:58:01 [monitor.py:81] Initial profiling/warmup run took 41.98 s
+(EngineCore pid=333) WARNING 09-18 21:58:02 [kv_cache_utils.py:1583] Hybrid KV cache manager is disabled for this hybrid model, This means we do not enable any optimizations for saving KV cache memory (e.g., dropping the KV cache outside the sliding window). The compute of layers like sliding window is still saved.
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349] EngineCore failed to start.
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349] Traceback (most recent call last):
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1318, in run_engine_core
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     return func(*args, **kwargs)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1074, in __init__
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     super().__init__(
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 143, in __init__
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     return func(*args, **kwargs)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 293, in _initialize_kv_caches
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     available_gpu_memory = self.model_executor.determine_available_memory()
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 147, in determine_available_memory
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     return self.collective_rpc("determine_available_memory")
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/uniproc_executor.py", line 92, in collective_rpc
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     return func(*args, **kwargs)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     return func(*args, **kwargs)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 517, in determine_available_memory
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     cudagraph_memory_estimate = self.model_runner.profile_cudagraph_memory()
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     return func(*args, **kwargs)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 6647, in profile_cudagraph_memory
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     self._init_minimal_kv_cache_for_profiling()
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 6516, in _init_minimal_kv_cache_for_profiling
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     kv_cache_groups = get_kv_cache_groups(self.vllm_config, kv_cache_spec)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/core/kv_cache_utils.py", line 1795, in get_kv_cache_groups
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     unify_hybrid_kv_cache_specs(kv_cache_spec)
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/core/kv_cache_utils.py", line 1589, in unify_hybrid_kv_cache_specs
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     kv_cache_spec.update(_promote_local_kv_cache_specs(kv_cache_spec))
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/core/kv_cache_utils.py", line 1529, in _promote_local_kv_cache_specs
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349]     raise ValueError("Failed to promote local KV cache specs to one unified type.")
+(EngineCore pid=333) ERROR 09-18 21:58:02 [core.py:1349] ValueError: Failed to promote local KV cache specs to one unified type.
+(APIServer pid=1) INFO 09-18 21:58:05 [utils.py:612] [shutdown] Process manager: send sigterm to process EngineCore

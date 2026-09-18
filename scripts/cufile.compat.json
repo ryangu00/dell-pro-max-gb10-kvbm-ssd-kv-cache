@@ -1,0 +1,5 @@
+{
+  "logging": { "level": "WARN" },
+  "properties": { "allow_compat_mode": true, "force_compat_mode": true, "use_poll_mode": false, "gds_rdma_write_support": false, "posix_pool_slab_size_kb": [4, 1024, 16384], "posix_pool_slab_count": [128, 64, 32] },
+  "fs": { "generic": { "posix_unaligned_writes": true } }
+}

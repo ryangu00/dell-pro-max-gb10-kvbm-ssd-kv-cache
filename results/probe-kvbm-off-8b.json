@@ -1,0 +1,126 @@
+{
+ "label": "kvbm-off-8b",
+ "model": "qwen3-8b",
+ "tokens": 30000,
+ "evict": 4,
+ "steps": [
+  {
+   "ttft": 8.976,
+   "wall": 9.172,
+   "text": "yankee",
+   "usage": {
+    "prompt_tokens": 30156,
+    "total_tokens": 30159,
+    "completion_tokens": 3
+   },
+   "step": "A1",
+   "seed": 1000,
+   "metrics_after": {
+    "error": "<urlopen error [Errno 111] Connection refused>"
+   },
+   "expected": "yankee7028",
+   "correct": false
+  },
+  {
+   "ttft": 9.037,
+   "wall": 9.225,
+   "text": "oscar",
+   "usage": {
+    "prompt_tokens": 30146,
+    "total_tokens": 30149,
+    "completion_tokens": 3
+   },
+   "step": "E1",
+   "seed": 2000,
+   "metrics_after": {
+    "error": "<urlopen error [Errno 111] Connection refused>"
+   },
+   "expected": "oscar812",
+   "correct": false
+  },
+  {
+   "ttft": 9.042,
+   "wall": 9.232,
+   "text": "sierra",
+   "usage": {
+    "prompt_tokens": 30151,
+    "total_tokens": 30154,
+    "completion_tokens": 3
+   },
+   "step": "E2",
+   "seed": 2001,
+   "metrics_after": {
+    "error": "<urlopen error [Errno 111] Connection refused>"
+   },
+   "expected": "sierra355",
+   "correct": false
+  },
+  {
+   "ttft": 9.074,
+   "wall": 9.264,
+   "text": "xray",
+   "usage": {
+    "prompt_tokens": 30162,
+    "total_tokens": 30165,
+    "completion_tokens": 3
+   },
+   "step": "E3",
+   "seed": 2002,
+   "metrics_after": {
+    "error": "<urlopen error [Errno 111] Connection refused>"
+   },
+   "expected": "xray6",
+   "correct": false
+  },
+  {
+   "ttft": 9.072,
+   "wall": 9.158,
+   "text": "delta",
+   "usage": {
+    "prompt_tokens": 30142,
+    "total_tokens": 30144,
+    "completion_tokens": 2
+   },
+   "step": "E4",
+   "seed": 2003,
+   "metrics_after": {
+    "error": "<urlopen error [Errno 111] Connection refused>"
+   },
+   "expected": "delta9144",
+   "correct": false
+  },
+  {
+   "ttft": 9.132,
+   "wall": 9.323,
+   "text": "yankee",
+   "usage": {
+    "prompt_tokens": 30156,
+    "total_tokens": 30159,
+    "completion_tokens": 3
+   },
+   "step": "A2",
+   "seed": 1000,
+   "metrics_after": {
+    "error": "<urlopen error [Errno 111] Connection refused>"
+   },
+   "expected": "yankee7028",
+   "correct": false
+  }
+ ],
+ "summary": {
+  "ttft_A1": 8.976,
+  "ttft_A2": 9.132,
+  "ratio": 1.017,
+  "identical": true,
+  "correct_A1": false,
+  "correct_A2": false,
+  "expected": "yankee7028",
+  "text_A1": "yankee",
+  "text_A2": "yankee",
+  "onboard_d2d_delta": 0,
+  "onboard_h2d_delta": 0,
+  "offload_d2h_delta": 0,
+  "offload_h2d_delta": 0,
+  "metrics_seen": []
+ }
+}
